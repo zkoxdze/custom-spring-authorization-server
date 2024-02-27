@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 @JsonAutoDetect
 public class User implements UserDetails {
 
-    private UUID identifier;
+    private Integer identifier;
     private String username;
     private String password;
     private String firstName;
@@ -26,10 +26,12 @@ public class User implements UserDetails {
 
     private Set<String> roles = new HashSet<>();
 
+
+
     public User() {
     }
 
-    public User(UUID identifier, String username, String password, String firstName, String lastName, String email, Set<String> roles) {
+    public User(Integer identifier, String username, String password, String firstName, String lastName, String email, Set<String> roles) {
         this.identifier = identifier;
         this.username = username;
         this.password = password;
@@ -97,11 +99,11 @@ public class User implements UserDetails {
         return roles;
     }
 
-    public UUID getIdentifier() {
+    public Integer getIdentifier() {
         return identifier;
     }
 
-    public void setIdentifier(UUID identifier) {
+    public void setIdentifier(Integer identifier) {
         this.identifier = identifier;
     }
 

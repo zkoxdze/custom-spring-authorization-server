@@ -52,7 +52,7 @@ public class ClientRegistrationConfiguration {
                 .authorizationGrantType(AuthorizationGrantType.CLIENT_CREDENTIALS)
                 .tokenSettings(TokenSettings.builder().accessTokenFormat(OAuth2TokenFormat.SELF_CONTAINED)
                         .accessTokenTimeToLive(Duration.ofMinutes(15))
-                        .authorizationCodeTimeToLive(Duration.ofMinutes(2)).build())
+                        .authorizationCodeTimeToLive(Duration.ofMinutes(12)).build())
                 .redirectUris(uris -> {
                     uris.addAll(redirectUris);
                 })
@@ -135,6 +135,7 @@ public class ClientRegistrationConfiguration {
 
         // Save registered client in db as if in-memory
         JdbcRegisteredClientRepository registeredClientRepository = new JdbcRegisteredClientRepository(jdbcTemplate);
+
         registeredClientRepository.save(demoClient);
         registeredClientRepository.save(demoClientPkce);
         registeredClientRepository.save(demoClientOpaque);
