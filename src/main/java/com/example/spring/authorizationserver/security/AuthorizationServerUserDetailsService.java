@@ -69,7 +69,7 @@ public class AuthorizationServerUserDetailsService implements UserDetailsService
         String query = "Select * from user1 ";
         User emp = this.jdbcTemplate
                 .queryForObject(query, new UserMapper(passwordEncoder));
-        System.out.println("Prakash >>>>  :" +emp.getUsername().length());
+        System.out.println("Prakash >>>>  :" +emp.getUsername().length()); 
         return emp;
     }
 }
